@@ -34,12 +34,12 @@ var orm =
         });
     },
     
-    updateOne: function(tableInput, col1, val1, id, idNum, cb)
+    updateOne: function(tableInput, colToUpdate, newVal, refCol, refVal, cb)
     {
         var queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
   
         console.log(queryString);
-        connection.query(queryString, [tableInput, col1, val1, id, idNum, cb], function(err, result)
+        connection.query(queryString, [tableInput, colToUpdate, newVal, refCol, refVal, cb], function(err, result)
         {
             if (err)
             {

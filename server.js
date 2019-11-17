@@ -1,4 +1,4 @@
-var orm = require("./config/orm");
+var burger = require("./models/burger");
 var express = require("express");
 
 //var PORT = process.env.PORT || 8080;
@@ -24,9 +24,13 @@ let printStuff = function(result)
 //app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 //app.set("view engine", "handlebars");
 
-//orm.insertOne("burgers", "burger_name", "devoured", "pizza burger", false, printStuff);
-//orm.selectAll("burgers", printStuff);
-//orm.updateOne("burgers", "devoured", true, "id", "4", printStuff);
+//burger.selectAll(printStuff);
+
+//burger.insertOne("steak burger", printStuff);
+
+//burger.updateBurger("grilled chicken sandwich", "pizza burger", printStuff);
+//burger.updateDevoured(false, "grilled chicken sandwich", printStuff);
+
 //orm.deleteOne("burgers", "burger_name", "pizza burger", printStuff);
 
 // Start our server so that it can begin listening to client requests.
