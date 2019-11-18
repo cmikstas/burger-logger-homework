@@ -1,43 +1,35 @@
-var burger = require("./models/burger");
 var express = require("express");
 
-//var PORT = process.env.PORT || 8080;
+var routes = require("./controllers/burgers_controller");
 
-//var app = express();
+var PORT = process.env.PORT || 8080;
+
+var app = express();
 
 // Serve static content for the app from the "public" directory in the application directory.
-//app.use(express.static("public"));
+app.use(express.static("public"));
 
 // Parse application body as JSON
-//app.use(express.urlencoded({ extended: true }));
-//app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-let printStuff = function(result)
-{
-    console.log("-----------------------");
-    console.log(result);
-}
+
 
 // Set Handlebars.
-//var exphbs = require("express-handlebars");
+var exphbs = require("express-handlebars");
 
-//app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-//app.set("view engine", "handlebars");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
-//burger.selectAll(printStuff);
+app.use(routes);
 
-//burger.insertOne("steak burger", printStuff);
+app.listen(PORT, function()
+{
+  console.log("Server listening on: http://localhost:" + PORT);
+});
 
-//burger.updateBurger("grilled chicken sandwich", "pizza burger", printStuff);
-//burger.updateDevoured(false, "grilled chicken sandwich", printStuff);
-
-//orm.deleteOne("burgers", "burger_name", "pizza burger", printStuff);
-
-// Start our server so that it can begin listening to client requests.
-//app.listen(PORT, function()
+//let printStuff = function(result)
 //{
-  // Log (server-side) when our server has started
-  //console.log("Server listening on: http://localhost:" + PORT);
-//});
-
-
+    //console.log("-----------------------");
+    //console.log(result);
+//}
