@@ -26,17 +26,17 @@ var burger =
         });
     },
 
-    updateDevoured: function(isDevoured, burgerName, cb)
+    updateDevoured: function(isDevoured, idNum, cb)
     {
-        orm.updateOne("burgers", "devoured", isDevoured, "burger_name", burgerName, function(res)
+        orm.updateOne("burgers", "devoured", isDevoured, "id", idNum, function(res)
         {
             cb(res);
         });
     },
 
-    deleteOne: function(burgerName, cb)
+    deleteOne: function(idNum, cb)
     {
-        orm.deleteOne("burgers", "burger_name", burgerName, function(res)
+        orm.deleteOne("burgers", "id", idNum, function(res)
         {
             cb(res);
         });

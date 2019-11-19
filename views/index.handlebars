@@ -32,7 +32,7 @@
                 <form>
                     <div class="input-group">
                         <input type="text" class="form-control" id="newBurger" placeholder="Add new burger here...">
-                        <button type="submit" id="newBurgerButton" class="btn btn-dark ml-3">Add</button>
+                        <button type="submit" id="newBurgerButton" class="btn btn-dark ml-3">Add Burger</button>
                     </div>
                 </form>
             </div>
@@ -50,17 +50,19 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-6 my-3 d-flex justify-content-center">
-                <div>
+            <div class="col-md-6 my-3 border-right border-dark">
+                <div class="col-md-12 d-flex justify-content-center">
                     <h4 class="text-info">Devoured Burgers</h4>
                 </div>
-                <ul>
-                    {{#each burgers}}
-                        {{#if devoured}}
-                            {{> burgers/devouredBurger}}
-                        {{/if}}
-                    {{/each}}
-                </ul>
+                <div class="col-md-12">
+                    <ul>
+                        {{#each burgers}}
+                            {{#if devoured}}
+                                {{> burgers/devouredBurger}}
+                            {{/if}}
+                        {{/each}}
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

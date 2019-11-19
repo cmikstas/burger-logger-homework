@@ -22,4 +22,32 @@ $(function()
         );
     });
 
+    $(".devourBurgerBtn").on("click", function(event)
+    {
+        var burgerID = $(this).attr("data-id");
+        console.log(burgerID);
+
+        $.ajax("/api/burgers/" + burgerID,
+        {
+            type: "PUT",
+        }).then(function()
+        {
+            location.reload();
+        });
+    });
+
+    $(".deleteBurgerBtn").on("click", function(event)
+    {
+        var burgerID = $(this).attr("data-id");
+        console.log(burgerID);
+
+        $.ajax("/api/burgers/" + burgerID,
+        {
+            type: "DELETE",
+        }).then(function()
+        {
+            location.reload();
+        });
+    });
+
 })
