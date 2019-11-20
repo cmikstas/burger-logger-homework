@@ -8,7 +8,14 @@ $(function()
         {
             burger_name: $("#newBurger").val().trim(),
         };
-    
+
+        if($("#newBurger").val().trim() === "")
+        {
+            return;
+        }
+   
+        $("#newBurger").val("");
+
         $.ajax("/api/burgers",
         {
             type: "POST",
